@@ -12,3 +12,6 @@ describe("Playing rock paper scissors", () => {
     expect(play(p1, p2)).toBe(expected)
   })
 })
+test("Invalid plays return an error", () => {
+  expect(() => play("gun", "Paper")).toThrow(Error("Invalid play"))
+})
