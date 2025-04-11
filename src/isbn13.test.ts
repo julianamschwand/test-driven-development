@@ -8,7 +8,7 @@ describe("Testing ISBN-13 numbers to be valid", () => {
     "9781663728234",
     "9780735619678",
     "9780201853926"
-  ])("isValid(%s) == %d", (isbn) => {
+  ])("isValid(%s) == true", (isbn) => {
     expect(isValid(isbn)).toBe(true)
   })
 })
@@ -20,7 +20,7 @@ describe("Testing ISBN-13 numbers to be invalid", () => {
     "9780735619679",
     "9780321751042",
     "9781593279289"
-  ])("isValid(%s) == %d", (isbn) => {
+  ])("isValid(%s) == false", (isbn) => {
     expect(isValid(isbn)).toBe(false)
   })
 })
@@ -30,7 +30,7 @@ describe("Invalid inputs will result in an error", () => {
     "12345678901234",
     "9780132350883 ",
     "978-0132350883"
-  ])("isValid(%s) == %d", (isbn) => {
+  ])("isValid(%s)", (isbn) => {
     expect(() => isValid(isbn)).toThrow(Error("Invalid input"))
   })
 })
